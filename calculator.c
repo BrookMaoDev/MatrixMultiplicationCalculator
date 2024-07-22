@@ -33,7 +33,7 @@ int dot_product(int **m1, int m1_row, int **m2, int m2_col, int length)
 {
     int result = 0;
 
-    for (size_t i = 0; i < length; i++)
+    for (int i = 0; i < length; i++)
     {
         result += m1[m1_row][i] * m2[i][m2_col];
     }
@@ -48,6 +48,12 @@ int dot_product(int **m1, int m1_row, int **m2, int m2_col, int length)
  */
 int **matrix_multiply(int **m1, int m1_rows, int m1_cols, int **m2, int m2_rows, int m2_cols)
 {
+    // Check if the matrices can be multiplied.
+    if (m1_cols != m2_rows)
+    {
+        return NULL;
+    }
+
     int **result = create_matrix(m1_rows, m2_cols);
 
     // Populating the result matrix with the appropriate values.
