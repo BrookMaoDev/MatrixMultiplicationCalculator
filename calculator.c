@@ -11,6 +11,12 @@
 
 #define MATRIX_COL_WIDTH 10
 
+void clear_input_buffer()
+{
+    while (getchar() != '\n')
+        ;
+}
+
 int **create_matrix(int rows, int cols)
 {
     // Allocate memory for matrix.
@@ -88,7 +94,7 @@ void populate_matrix(int **m, int rows, int cols)
         {
             printf("Enter value for row %d, column %d: ", i + 1, j + 1);
             scanf("%d", &(m[i][j]));
-            getchar();
+            clear_input_buffer();
         }
     }
 }
@@ -120,11 +126,11 @@ int main()
 
         printf("Enter rows: ");
         scanf("%d", &m1_rows);
-        getchar();
+        clear_input_buffer();
 
         printf("Enter cols: ");
         scanf("%d", &m1_cols);
-        getchar();
+        clear_input_buffer();
 
         printf("\n");
 
@@ -132,11 +138,11 @@ int main()
 
         printf("Enter rows: ");
         scanf("%d", &m2_rows);
-        getchar();
+        clear_input_buffer();
 
         printf("Enter cols: ");
         scanf("%d", &m2_cols);
-        getchar();
+        clear_input_buffer();
 
         printf("\n");
 
@@ -182,8 +188,8 @@ int main()
 
         printf("Do you want to continue multiplying matrices? Enter 'y' if so: ");
         char response;
-        scanf("%s", &response);
-        getchar();
+        scanf("%c", &response);
+        clear_input_buffer();
 
         if (response != 'y')
         {
